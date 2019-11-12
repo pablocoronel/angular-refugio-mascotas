@@ -2,7 +2,10 @@
   <h1>Mascotas para adoptar</h1>
 </div>
 <div class="clr-row">
-  <table class="table">
+  <a routerLink="/mascotas-agregar" class="btn btn-outline">agregar mascota</a>
+</div>
+<div class="clr-row">
+  <table class="table" *ngIf="mascotas.length > 0; else emptyMascotas">
     <thead>
       <tr>
         <th class="left">Nombre</th>
@@ -20,4 +23,8 @@
       </tr>
     </tbody>
   </table>
+
+  <ng-template #emptyMascotas>
+    No hay mascotas
+  </ng-template>
 </div>
