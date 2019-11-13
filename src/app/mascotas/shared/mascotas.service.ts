@@ -32,7 +32,7 @@ export class MascotasService {
   }
 
   // borrar mascota
-  public deleteMascota(id: number){
+  public deleteMascota(id: number) {
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 }
