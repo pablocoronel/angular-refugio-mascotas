@@ -10,13 +10,23 @@ export class MascotasService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // obtener mascotas
+  // obtener lista de mascotas
   public getMascotas() {
     return this.httpClient.get<Array<Mascota>>(`${this.baseUrl}`);
   }
 
   // guardar nueva mascota
-  public addMascota(mascota: Mascota){
+  public addMascota(mascota: Mascota) {
     return this.httpClient.post<Mascota>(`${this.baseUrl}`, mascota);
+  }
+
+  // obtener mascota
+  public getMascota(id: number) {
+    return this.httpClient.get<Mascota>(`${this.baseUrl}/${id}`);
+  }
+
+  // actualizar mascota
+  public updateMascota(mascota: Mascota) {
+    return this.httpClient.put<Mascota>(`${this.baseUrl}`, mascota);
   }
 }

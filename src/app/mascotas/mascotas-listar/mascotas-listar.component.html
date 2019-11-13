@@ -12,14 +12,20 @@
         <th class="left">Tipo</th>
         <th class="left">Edad</th>
         <th class="left">Descripción</th>
+        <th class="left">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of mascotas">
-        <td class="left">{{ item.nombre }}</td>
-        <td class="left">{{ item.tipo }}</td>
-        <td class="left">{{ item.edad }}</td>
-        <td class="left">{{ item.descripcion }}</td>
+      <tr *ngFor="let mascota of mascotas">
+        <td class="left">{{ mascota.nombre }}</td>
+        <td class="left">{{ mascota.tipo }}</td>
+        <td class="left">{{ mascota.edad }}</td>
+        <td class="left">{{ mascota.descripcion }}</td>
+        <td class="left">
+            <a class="btn btn-icon" [routerLink]="['/mascotas-editar', mascota.id]" >
+                <clr-icon shape="pencil"></clr-icon>
+            </a>
+        </td>
       </tr>
     </tbody>
   </table>

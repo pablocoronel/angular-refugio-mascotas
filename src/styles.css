@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+table tbody tr td:last-of-type{
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+}
