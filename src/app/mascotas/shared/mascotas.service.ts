@@ -6,6 +6,7 @@ import { Mascota } from "./mascota";
   providedIn: "root"
 })
 export class MascotasService {
+  // ruta raiz de la API
   private baseUrl: string = "http://localhost:8090/mascotas";
 
   constructor(private httpClient: HttpClient) {}
@@ -28,5 +29,10 @@ export class MascotasService {
   // actualizar mascota
   public updateMascota(mascota: Mascota) {
     return this.httpClient.put<Mascota>(`${this.baseUrl}`, mascota);
+  }
+
+  // borrar mascota
+  public deleteMascota(id: number){
+    return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 }
