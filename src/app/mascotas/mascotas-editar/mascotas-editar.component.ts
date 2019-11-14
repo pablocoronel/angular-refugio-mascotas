@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MascotasService } from "../shared/mascotas.service";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
 
 @Component({
   selector: "app-mascotas-editar",
@@ -21,7 +21,10 @@ export class MascotasEditarComponent implements OnInit {
     id: ["", [Validators.required, Validators.pattern("[0-9]+")]],
     nombre: ["", Validators.required],
     tipo: ["", Validators.required],
-    edad: ["", [Validators.required, Validators.pattern("[0-9]+")]],
+    edad: [
+      "",
+      [Validators.required, Validators.pattern("[0-9]+"), this.ageValidator]
+    ],
     descripcion: ["", Validators.required]
   });
 
@@ -39,5 +42,14 @@ export class MascotasEditarComponent implements OnInit {
       .subscribe(data => {
         this.router.navigate(["/mascotas-listar"]);
       });
+  }
+
+  // validaciones
+  ageValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value < 0 || control.value > 120) {
+      return { ageValidator: true };
+    }
+
+    return null;
   }
 }
