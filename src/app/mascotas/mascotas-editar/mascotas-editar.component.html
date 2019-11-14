@@ -16,7 +16,12 @@
       name="nombre"
       id="nombre"
     />
-    <clr-control-error>Debe indicar un nombre</clr-control-error>
+    <clr-control-error *clrIfError="'required'"
+      >Debe indicar un nombre
+    </clr-control-error>
+    <clr-control-error *clrIfError="'secondNameValidator'"
+      >Debe tener sólo un nombre
+    </clr-control-error>
   </clr-input-container>
 
   <clr-input-container>
@@ -41,7 +46,7 @@
       >Debe indicar una edad (sólo números)
     </clr-control-error>
     <clr-control-error *clrIfError="'ageValidator'"
-      >Debe ser entre 0 y 120
+      >Debe tener entre 0 y 120 años
     </clr-control-error>
   </clr-input-container>
 

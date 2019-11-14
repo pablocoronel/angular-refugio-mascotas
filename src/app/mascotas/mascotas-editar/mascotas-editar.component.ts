@@ -19,7 +19,7 @@ export class MascotasEditarComponent implements OnInit {
   // campos
   public mascotaForm = this.fb.group({
     id: ["", [Validators.required, Validators.pattern("[0-9]+")]],
-    nombre: ["", Validators.required],
+    nombre: ["", [Validators.required, this.secondNameValidator]],
     tipo: ["", Validators.required],
     edad: [
       "",
@@ -48,6 +48,18 @@ export class MascotasEditarComponent implements OnInit {
   ageValidator(control: AbstractControl): { [key: string]: boolean } | null {
     if (control.value < 0 || control.value > 120) {
       return { ageValidator: true };
+    }
+
+    return null;
+  }
+
+  secondNameValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    const name: String = control.value;
+
+    if (name.includes(" ")) {
+      return { secondNameValidator: true };
     }
 
     return null;
