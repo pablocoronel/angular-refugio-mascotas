@@ -24,8 +24,16 @@ export class MascotasListarComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.mascotasService.deleteMascota(id).subscribe(data => {
-      this.mascotas.splice(id - 1, 1);
-    });
+    const index = this.mascotas.findIndex(mascota => mascota.id == id);
+
+    const confirmation: boolean = confirm(
+      "¿Borrar la mascota ".concat(this.mascotas[index].nombre).concat(" ?")
+    );
+
+    if (confirmation) {
+      this.mascotasService.deleteMascota(id).subscribe(data => {
+        this.mascotas.splice(index, 1);
+      });
+    }
   }
 }
