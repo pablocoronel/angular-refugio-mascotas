@@ -27,7 +27,7 @@ export class MascotasListarComponent implements OnInit {
     const index = this.mascotas.findIndex(mascota => mascota.id == id);
 
     const confirmation: boolean = confirm(
-      "¿Borrar la mascota ".concat(this.mascotas[index].nombre).concat(" ?")
+      "¿Borrar la mascota ".concat(this.mascotas[index].nombre).concat("?")
     );
 
     if (confirmation) {
