@@ -34,7 +34,15 @@
       name="edad"
       id="edad"
     />
-    <clr-control-error>Debe indicar una edad (sólo números)</clr-control-error>
+    <clr-control-error *clrIfError="'required'"
+      >Debe indicar una edad
+    </clr-control-error>
+    <clr-control-error *clrIfError="'pattern'"
+      >Debe indicar una edad (sólo números)
+    </clr-control-error>
+    <clr-control-error *clrIfError="'ageValidator'"
+      >Debe ser entre 0 y 120
+    </clr-control-error>
   </clr-input-container>
 
   <clr-input-container>

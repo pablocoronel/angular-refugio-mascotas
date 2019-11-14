@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
 import { MascotasService } from "../shared/mascotas.service";
 import { Router } from "@angular/router";
 
@@ -19,7 +19,10 @@ export class MascotasAgregarComponent implements OnInit {
   public mascotaForm = this.fb.group({
     nombre: ["", Validators.required],
     tipo: ["", Validators.required],
-    edad: ["", [Validators.required, Validators.pattern("[0-9]+")]],
+    edad: [
+      "",
+      [Validators.required, Validators.pattern("[0-9]+"), this.ageValidator]
+    ],
     descripcion: ["", Validators.required]
   });
 
@@ -33,5 +36,14 @@ export class MascotasAgregarComponent implements OnInit {
 
   reset() {
     this.mascotaForm.reset();
+  }
+
+  // validaciones
+  ageValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value < 0 || control.value > 120) {
+      return { ageValidator: true };
+    }
+
+    return null;
   }
 }
