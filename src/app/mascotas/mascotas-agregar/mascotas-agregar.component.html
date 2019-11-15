@@ -62,6 +62,18 @@
     <clr-control-error>Debe indicar una descripción</clr-control-error>
   </clr-input-container>
 
+  <clr-input-container>
+    <label>URL imagen</label>
+    <input
+      clrInput
+      type="text"
+      formControlName="imagen"
+      name="imagen"
+      id="imagen"
+    />
+    <clr-control-error>Debe indicar una descripción</clr-control-error>
+  </clr-input-container>
+
   <button type="submit" [disabled]="!mascotaForm.valid" class="btn btn-success">
     Agregar
   </button>

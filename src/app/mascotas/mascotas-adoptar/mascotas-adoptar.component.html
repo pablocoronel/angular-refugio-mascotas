@@ -1,0 +1,13 @@
+<div class="clr-row">
+  <h1>Adoptar</h1>
+</div>
+<div class="clr-row">
+  <clr-accordion>
+    <clr-accordion-panel *ngFor="let mascota of mascotas">
+      <clr-accordion-title>{{ mascota.nombre }}</clr-accordion-title>
+      <clr-accordion-content *clrIfExpanded>
+        <app-mascotas-tarjeta [mascota]="mascota"></app-mascotas-tarjeta>
+      </clr-accordion-content>
+    </clr-accordion-panel>
+  </clr-accordion>
+</div>

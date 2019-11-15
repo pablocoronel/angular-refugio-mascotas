@@ -23,7 +23,8 @@ export class MascotasAgregarComponent implements OnInit {
       "",
       [Validators.required, Validators.pattern("[0-9]+"), this.ageValidator]
     ],
-    descripcion: ["", Validators.required]
+    descripcion: ["", Validators.required],
+    imagen: [""]
   });
 
   ngOnInit() {}
@@ -47,7 +48,9 @@ export class MascotasAgregarComponent implements OnInit {
     return null;
   }
 
-  secondNameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  secondNameValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
     const name: String = control.value;
 
     if (name.includes(" ")) {

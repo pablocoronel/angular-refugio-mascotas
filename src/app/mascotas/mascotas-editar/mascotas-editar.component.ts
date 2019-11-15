@@ -25,10 +25,12 @@ export class MascotasEditarComponent implements OnInit {
       "",
       [Validators.required, Validators.pattern("[0-9]+"), this.ageValidator]
     ],
-    descripcion: ["", Validators.required]
+    descripcion: ["", Validators.required],
+    imagen: [""]
   });
 
   ngOnInit() {
+    console.log(this.mascotaForm)
     let id: string = this.route.snapshot.paramMap.get("id");
 
     this.mascotasService.getMascota(parseInt(id)).subscribe(data => {
