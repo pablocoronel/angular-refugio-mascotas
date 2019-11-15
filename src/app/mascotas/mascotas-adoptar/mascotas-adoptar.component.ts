@@ -14,7 +14,19 @@ export class MascotasAdoptarComponent implements OnInit {
 
   ngOnInit() {
     this.mascotasService.getMascotas().subscribe(data => {
+      data.forEach(data => {
+        data.adoptado = false;
+      });
+
       this.mascotas = data;
     });
+  }
+
+  onPersonAdopt(message: { adopted: boolean; id: number }) {
+    const index: number = this.mascotas.findIndex(
+      mascota => mascota.id == message.id
+    );
+
+    this.mascotas[index].adoptado = true;
   }
 }

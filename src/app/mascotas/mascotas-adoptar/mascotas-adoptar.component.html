@@ -4,9 +4,18 @@
 <div class="clr-row">
   <clr-accordion>
     <clr-accordion-panel *ngFor="let mascota of mascotas">
-      <clr-accordion-title>{{ mascota.nombre }}</clr-accordion-title>
+      <clr-accordion-title
+        >{{ mascota.nombre }}
+        <span *ngIf="mascota.adoptado" class="badge badge-success"
+          >Adoptado</span
+        >
+      </clr-accordion-title>
       <clr-accordion-content *clrIfExpanded>
-        <app-mascotas-tarjeta [mascota]="mascota"></app-mascotas-tarjeta>
+        <!-- componente hijo -->
+        <app-mascotas-tarjeta
+          [mascota]="mascota"
+          (adoptClicked)="onPersonAdopt($event)"
+        ></app-mascotas-tarjeta>
       </clr-accordion-content>
     </clr-accordion-panel>
   </clr-accordion>
