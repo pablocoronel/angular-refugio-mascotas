@@ -4,4 +4,5 @@ export interface Mascota {
   tipo: string;
   edad: number;
   descripcion: string;
+  adoptado?: boolean;
 }

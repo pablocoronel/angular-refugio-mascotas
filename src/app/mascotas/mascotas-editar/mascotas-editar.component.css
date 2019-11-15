@@ -1,0 +1,15 @@
+/* sm y sup */
+@media (min-width: 768px) {
+  img {
+    margin-top: 5vh;
+    width: 20vw;
+  }
+}
+
+/* xs y s */
+@media (max-width: 768px) {
+  img {
+    margin-top: 5vh;
+    width: 90vw;
+  }
+}

@@ -1,0 +1,14 @@
+/* xs y s */
+@media (min-width: 768px) {
+  clr-accordion {
+      width: 50vw;
+  }
+}
+
+/* sm y superior */
+@media (max-width: 768px) {
+    clr-accordion {
+        width: 90vw;
+    }
+  }
+  
